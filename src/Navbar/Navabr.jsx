@@ -2,8 +2,15 @@ import '../Navbar/Navbar.css'
 import PersonSearchSharpIcon from '@mui/icons-material/PersonSearchSharp';
 
 export default function Navbar() {
-    const SearchUser= () => {
-        console.log("Why are you pressing MAOW")
+    async function SearchUser() {
+        const username = document.querySelector(".nav-search-name");
+        await fetch(`https://codeforces.com/api/user.info?handles=${username.value}`)
+            .then((response) => {
+                return response.json();
+            })
+            .then((apidata) => {
+                console.log(apidata);
+            })
     }
     return (
         <>
@@ -14,7 +21,7 @@ export default function Navbar() {
                     <div className="nav-title-third">orces</div>
                 </div>
                 <div className="nav-search">
-                    <input type="text" placeholder="Codeforces ID"></input>
+                    <input className="nav-search-name" type="text" placeholder="Codeforces ID"></input>
                     <div className="nav-search-icon" onClick={SearchUser}>
                         <PersonSearchSharpIcon />
                     </div>
