@@ -1,9 +1,11 @@
-import Navbar from "./Navbar/Navabr.jsx"
+import Navbar from "./Navbar/Navbar.jsx"
+import Home from "./Home/Home.jsx"
 
 function App() {
   return (
     <>
       <Navbar />
+      <Home />
     </>
   )
 }
