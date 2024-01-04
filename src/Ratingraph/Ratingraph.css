@@ -1,0 +1,9 @@
+.ratingplot {
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+    border-radius: 8px;
+    height: 400px;
+    margin-top: 40px;
+    border: 5px solid #12349A;
+}

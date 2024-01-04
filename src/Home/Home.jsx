@@ -10,13 +10,15 @@ export default function Home() {
         maxRating: "max_rating",
         rank: "rank",
         rating: "rating",
-        organization: "organization",
+        city: "city",
     });
+    const [diffrating, setdiffrating] = useState(0);
+    const [trend, settrend] = useState("\u2191")
     useEffect(() => {
         const navsearchicon = document.querySelector(".nav-search-icon");
-        navsearchicon.addEventListener('click', () => {
+        navsearchicon.addEventListener('click', async () => {
             const username = document.querySelector(".nav-search-name");
-            fetch(`https://codeforces.com/api/user.info?handles=${username.value}`)
+            await fetch(`https://codeforces.com/api/user.info?handles=${username.value}`)
                 .then((response) => {
                     return response.json();
                 })
@@ -30,6 +32,20 @@ export default function Home() {
         const maxrank = document.querySelector(".profile-max-rank");
         const rating = document.querySelector(".profile-normal-rating");
         const maxrating = document.querySelector(".profile-max-rating");
+        const contribution = document.querySelector(".cf-contribution");
+        setdiffrating(parseInt(cfdata.rating) - parseInt(cfdata.maxRating));
+        if (diffrating < 0) {
+            settrend("\u2193");
+        }
+        else {
+            settrend("\u2191")
+        }
+        if (parseInt(cfdata.contribution) >= 0) {
+            contribution.style.color = "green";
+        }
+        else {
+            contribution.style.color = "red";
+        }
         var ranks =
             [
                 ["newbie", "#808298"],
@@ -62,7 +78,7 @@ export default function Home() {
                         {"Codeforces ID: " + cfdata.handle}
                     </div>
                     <div className="cf-organization">
-                        {"Oraganization: " + cfdata.organization}
+                        {"City: " + cfdata.city}
                     </div>
                     <div className="cf-contribution">
                         {"Contribution: " + cfdata.contribution}
@@ -78,7 +94,7 @@ export default function Home() {
                 </div>
                 <div className="profile-rating">
                     <div className="profile-normal-rating">
-                        {"Current Rating: " + cfdata.rating}
+                        {"Current Rating: " + cfdata.rating} {"(" + diffrating + ")" + trend}
                     </div>
                     <div className="profile-max-rating">
                         {"Maximum Rating: " + cfdata.maxRating}
