@@ -8,9 +8,9 @@ export default function Problemgraph() {
     const [rank, setrank] = useState(new Array(36).fill(0));
     useEffect(() => {
         const navsearchicon = document.querySelector(".nav-search-icon")
-        navsearchicon.addEventListener('click', async () => {
+        navsearchicon.addEventListener('click', () => {
             const username = document.querySelector(".nav-search-name");
-            await fetch(`https://codeforces.com/api/user.status?handle=${username.value}`)
+            fetch(`https://codeforces.com/api/user.status?handle=${username.value}`)
                 .then((response) => {
                     return response.json();
                 })
@@ -60,7 +60,7 @@ export default function Problemgraph() {
                             data: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
                         }]}
                         series={[{ data: [problems[0], problems[1], problems[2], problems[2], problems[3], problems[4], problems[5], problems[6]] }]}
-                        width={900}
+                        width={540}
                         height={330}
                     />
                 </div>
@@ -71,7 +71,7 @@ export default function Problemgraph() {
                             data: ['800', '900', '1000', '1100', '1200', '1300', '1400', '1500', '1600', '1700', '1800', '1900', '2000', '2100', '2200'],
                         }]}
                         series={[{ data: [rank[8], rank[9], rank[10], rank[11], rank[12], rank[13], rank[14], rank[15], rank[16], rank[17], rank[18], rank[19], rank[20], rank[21], rank[22]] }]}
-                        width={900}
+                        width={650}
                         height={330}
                     />
                 </div>

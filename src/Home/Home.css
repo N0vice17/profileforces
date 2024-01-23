@@ -8,15 +8,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 550px;
     margin-top: 50px;
-    height: 25vh;
+    height: 50vh;
     padding-left: 20px;
     padding-right: 15px;
     padding-bottom: 10px;
-    font-family: 'Jetbrains Mono', monospace;
+    font-family: 'Monospace', sans-serif;
     font-size: 18px;
     border-radius: 8px;
     border: 5px solid #12349A;
@@ -25,11 +23,9 @@
 
 .profile-id {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     width: 100%;
     height: 85px;
-    gap: 40px;
-    flex-wrap: wrap;
 }
 
 .profile-section1 {
@@ -47,7 +43,7 @@
 .profile-rank,
 .profile-rating {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .profile-normal-rank,
@@ -55,8 +51,7 @@
 .profile-max-rank,
 .profile-max-rating {
     display: flex;
-    align-items: center;
-    height: 60px;
-    width: 50%;
-    flex-wrap: wrap;
+    flex-direction: row;
+    height: 50px;
+    width: 100%;
 }

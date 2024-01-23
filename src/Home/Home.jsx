@@ -16,9 +16,9 @@ export default function Home() {
     const [trend, settrend] = useState("\u2191")
     useEffect(() => {
         const navsearchicon = document.querySelector(".nav-search-icon");
-        navsearchicon.addEventListener('click', async () => {
+        navsearchicon.addEventListener('click', () => {
             const username = document.querySelector(".nav-search-name");
-            await fetch(`https://codeforces.com/api/user.info?handles=${username.value}`)
+            fetch(`https://codeforces.com/api/user.info?handles=${username.value}`)
                 .then((response) => {
                     return response.json();
                 })
