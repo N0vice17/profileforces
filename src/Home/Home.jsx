@@ -3,7 +3,6 @@ import "../Home/Home.css"
 
 export default function Home() {
     const [cfdata, setdata] = useState({
-        contribution: "0",
         country: "country",
         handle: "cf_handle",
         maxRank: "max_rank",
@@ -32,19 +31,12 @@ export default function Home() {
         const maxrank = document.querySelector(".profile-max-rank");
         const rating = document.querySelector(".profile-normal-rating");
         const maxrating = document.querySelector(".profile-max-rating");
-        const contribution = document.querySelector(".cf-contribution");
         setdiffrating(parseInt(cfdata.rating) - parseInt(cfdata.maxRating));
         if (diffrating < 0) {
             settrend("\u2193");
         }
         else {
             settrend("\u2191")
-        }
-        if (parseInt(cfdata.contribution) >= 0) {
-            contribution.style.color = "green";
-        }
-        else {
-            contribution.style.color = "red";
         }
         var ranks =
             [
@@ -77,28 +69,24 @@ export default function Home() {
                     <div className="cf_id">
                         {"Codeforces ID: " + cfdata.handle}
                     </div>
-                    <div className="cf-organization">
-                        {"City: " + cfdata.city}
-                    </div>
-                    <div className="cf-contribution">
-                        {"Contribution: " + cfdata.contribution}
-                    </div>
                 </div>
                 <div className="profile-rank">
-                    <div className="profile-normal-rank">
-                        {"Current Rank: " + cfdata.rank}
+                    <p>Maximum Rating :</p>
+                    <div className="profile-max-rating">
+                        {cfdata.maxRating}
                     </div>
                     <div className="profile-max-rank">
                         {"Maximum Rank: " + cfdata.maxRank}
                     </div>
                 </div>
                 <div className="profile-rating">
+                    <div className="profile-normal-rank">
+                        {"Current Rank: " + cfdata.rank}
+                    </div>
                     <div className="profile-normal-rating">
                         {"Current Rating: " + cfdata.rating} {"(" + diffrating + ")" + trend}
                     </div>
-                    <div className="profile-max-rating">
-                        {"Maximum Rating: " + cfdata.maxRating}
-                    </div>
+
                 </div>
             </div>
         </>

@@ -3,7 +3,6 @@
 * {
     padding: 0;
     margin: 0;
-    background-color: #FBFCF8;
 }
 
 .navbar {
@@ -17,7 +16,7 @@
 
 .nav-title {
     display: flex;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Poppins', monospace;
     font-size: 30px;
     font-weight: bold;
     position: relative;
@@ -54,7 +53,7 @@
     border-bottom: 2px solid black;
     background-color: #EFF1F2;
     outline: none;
-    font-family: 'JotoBrains Mono', monospace;
+    font-family: 'Poppins', monospace;
 }
 
 .nav-search svg {
